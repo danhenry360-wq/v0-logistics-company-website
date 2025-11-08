@@ -76,9 +76,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Email</h3>
                     <p className="text-muted-foreground mb-2">For general inquiries:</p>
-                    <p className="font-semibold">info@logisticshub.com</p>
-                    <p className="text-muted-foreground mb-2">For support:</p>
-                    <p className="font-semibold">support@logisticshub.com</p>
+                    <p className="font-semibold">support@cargocore.com</p>
+                    <p className="text-muted-foreground mb-2">For sales inquiries:</p>
+                    <p className="font-semibold">sales@cargocore.com</p>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Headquarters</h3>
                     <p className="text-muted-foreground">
-                      LogisticsHub Global
+                      CargoCore Logistics
                       <br />
                       123 Logistics Avenue
                       <br />
