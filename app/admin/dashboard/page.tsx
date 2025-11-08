@@ -1,18 +1,88 @@
 "use client"
 
+import type React from "react"
+
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { LogOut, Package, Users, TrendingUp, BarChart3 } from "lucide-react"
+import { LogOut, Package, Users, TrendingUp, BarChart3, Plus, X } from "lucide-react"
 
 export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true)
+  const [showCreateForm, setShowCreateForm] = useState(false)
+  const [formData, setFormData] = useState({
+    originCity: "",
+    originCountry: "",
+    destinationCity: "",
+    destinationCountry: "",
+    weight: "",
+    value: "",
+    serviceType: "Air Freight",
+    estimatedDelivery: "",
+    description: "",
+  })
+  const [submitLoading, setSubmitLoading] = useState(false)
+  const [message, setMessage] = useState("")
+  const [createdTrackingNumber, setCreatedTrackingNumber] = useState("")
   const router = useRouter()
 
   useEffect(() => {
     // Simulate checking admin session
     setTimeout(() => setIsLoading(false), 1000)
   }, [])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleCreateShipment = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitLoading(true)
+    setMessage("")
+    setCreatedTrackingNumber("")
+
+    try {
+      const response = await fetch("/api/shipments/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setMessage(`Error: ${data.error}`)
+        return
+      }
+
+      setMessage(`Success! Tracking Number: ${data.trackingNumber}`)
+      setCreatedTrackingNumber(data.trackingNumber)
+      setFormData({
+        originCity: "",
+        originCountry: "",
+        destinationCity: "",
+        destinationCountry: "",
+        weight: "",
+        value: "",
+        serviceType: "Air Freight",
+        estimatedDelivery: "",
+        description: "",
+      })
+
+      // Hide form after 3 seconds
+      setTimeout(() => {
+        setShowCreateForm(false)
+      }, 3000)
+    } catch (error) {
+      setMessage("Failed to create shipment")
+    } finally {
+      setSubmitLoading(false)
+    }
+  }
 
   const handleLogout = async () => {
     await fetch("/api/admin/logout", { method: "POST" })
@@ -48,7 +118,182 @@ export default function AdminDashboard() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-3xl font-bold mb-8">Dashboard</h2>
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold">Dashboard</h2>
+          <Button
+            onClick={() => setShowCreateForm(true)}
+            className="flex items-center gap-2 bg-accent hover:bg-accent/90"
+          >
+            <Plus size={20} />
+            Create Shipment
+          </Button>
+        </div>
+
+        {showCreateForm && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-card rounded-lg border border-border max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="sticky top-0 bg-card border-b border-border flex justify-between items-center p-6">
+                <h3 className="text-2xl font-bold">Create New Shipment</h3>
+                <button
+                  onClick={() => setShowCreateForm(false)}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <form onSubmit={handleCreateShipment} className="p-6 space-y-6">
+                {message && (
+                  <div
+                    className={`p-4 rounded-lg ${
+                      message.includes("Error")
+                        ? "bg-red-500/20 text-red-600 border border-red-500/30"
+                        : "bg-green-500/20 text-green-600 border border-green-500/30"
+                    }`}
+                  >
+                    {message}
+                    {createdTrackingNumber && (
+                      <p className="font-semibold text-lg mt-2">Tracking: {createdTrackingNumber}</p>
+                    )}
+                  </div>
+                )}
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Origin City</label>
+                    <input
+                      type="text"
+                      name="originCity"
+                      value={formData.originCity}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., Shanghai"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Origin Country</label>
+                    <input
+                      type="text"
+                      name="originCountry"
+                      value={formData.originCountry}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., China"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Destination City</label>
+                    <input
+                      type="text"
+                      name="destinationCity"
+                      value={formData.destinationCity}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., New York"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Destination Country</label>
+                    <input
+                      type="text"
+                      name="destinationCountry"
+                      value={formData.destinationCountry}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., USA"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Weight</label>
+                    <input
+                      type="text"
+                      name="weight"
+                      value={formData.weight}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., 250 kg"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Value</label>
+                    <input
+                      type="text"
+                      name="value"
+                      value={formData.value}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., $5,000"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Service Type</label>
+                    <select
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                    >
+                      <option>Air Freight</option>
+                      <option>Ocean Freight</option>
+                      <option>Road Transport</option>
+                      <option>Warehousing</option>
+                      <option>Last-Mile Delivery</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Estimated Delivery Date</label>
+                  <input
+                    type="date"
+                    name="estimatedDelivery"
+                    value={formData.estimatedDelivery}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Description (Optional)</label>
+                  <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                    placeholder="Add any additional details about the shipment"
+                    rows={3}
+                  />
+                </div>
+
+                <div className="flex gap-4 pt-4">
+                  <Button
+                    type="submit"
+                    disabled={submitLoading}
+                    className="flex-1 bg-accent hover:bg-accent/90 disabled:opacity-50"
+                  >
+                    {submitLoading ? "Creating..." : "Create Shipment"}
+                  </Button>
+                  <Button type="button" onClick={() => setShowCreateForm(false)} variant="outline" className="flex-1">
+                    Cancel
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">

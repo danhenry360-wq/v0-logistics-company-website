@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-// This will be populated by the create shipment API
+// Mock database to store created shipments
 const shipments: Record<string, any> = {
   "CC-2025-12345": {
     trackingNumber: "CC-2025-12345",
@@ -38,20 +38,62 @@ const shipments: Record<string, any> = {
 
 export async function POST(request: NextRequest) {
   try {
-    const { trackingNumber } = await request.json()
+    const body = await request.json()
 
-    if (!trackingNumber) {
-      return NextResponse.json({ error: "Tracking number is required" }, { status: 400 })
+    const {
+      originCity,
+      originCountry,
+      destinationCity,
+      destinationCountry,
+      weight,
+      value,
+      serviceType,
+      estimatedDelivery,
+      description,
+    } = body
+
+    // Validation
+    if (!originCity || !originCountry || !destinationCity || !destinationCountry || !weight || !value || !serviceType) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    const shipment = shipments[trackingNumber]
+    // Generate tracking number
+    const trackingNumber = `CC-${new Date().getFullYear()}-${Math.random().toString().substring(2, 7)}`
 
-    if (!shipment) {
-      return NextResponse.json({ error: "Shipment not found" }, { status: 404 })
+    // Create new shipment
+    const newShipment = {
+      trackingNumber,
+      status: "Processing",
+      origin: { city: originCity, country: originCountry, date: new Date().toISOString().split("T")[0] },
+      destination: { city: destinationCity, country: destinationCountry, date: estimatedDelivery },
+      current: { city: originCity, country: originCountry, date: new Date().toISOString().split("T")[0] },
+      weight,
+      value,
+      carrier: `CargoCore ${serviceType}`,
+      description,
+      events: [
+        {
+          status: "Processing",
+          location: `${originCity}, ${originCountry}`,
+          date: new Date().toISOString().split("T")[0],
+          time: new Date().toLocaleTimeString(),
+        },
+      ],
     }
 
-    return NextResponse.json(shipment, { status: 200 })
+    // Store in mock database
+    shipments[trackingNumber] = newShipment
+
+    return NextResponse.json(
+      {
+        success: true,
+        trackingNumber,
+        message: "Shipment created successfully",
+      },
+      { status: 201 },
+    )
   } catch (error) {
+    console.error("Error creating shipment:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
