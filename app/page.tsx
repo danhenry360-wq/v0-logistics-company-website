@@ -6,7 +6,7 @@ const Page = () => {
       {/* Hero Section with Image */}
       <section className="relative w-full h-[500px] overflow-hidden">
         <img
-          src="/cargo-truck-highway-sunset-logistics.jpg"
+          src="/cargo-truck-highway-international-logistics-shippi.jpg"
           alt="Hero banner showing cargo truck on highway at sunset"
           className="w-full h-full object-cover"
         />
@@ -48,8 +48,8 @@ const Page = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
               <img
-                src="/global-cargo-network-containers-worldwide-logistic.jpg"
-                alt="Global cargo network with containers"
+                src="/global-supply-chain-network-world-map-distribution.jpg"
+                alt="Global supply chain network"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
               <h3 className="text-xl font-bold mb-2">Global Reach</h3>
@@ -59,8 +59,8 @@ const Page = () => {
             </div>
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
               <img
-                src="/fast-delivery-express-shipping-logistics-transport.jpg"
-                alt="Fast delivery service"
+                src="/express-delivery-fast-shipping-drone-package-racin.jpg"
+                alt="Express delivery service"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
               <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
@@ -68,7 +68,7 @@ const Page = () => {
             </div>
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
               <img
-                src="/warehouse-logistics-team-professional-workers.jpg"
+                src="/professional-logistics-workers-team-warehouse-mana.jpg"
                 alt="Professional logistics team"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
@@ -88,32 +88,32 @@ const Page = () => {
               {
                 name: "Air Freight",
                 desc: "Fast international air cargo",
-                image: "airplane cargo loading air freight logistics",
+                image: "commercial airplane cargo door open loading freight international airport",
               },
               {
                 name: "Ocean Freight",
                 desc: "Cost-effective sea shipping",
-                image: "cargo ship containers port loading ocean",
+                image: "container ship vessel ocean port international maritime logistics",
               },
               {
                 name: "Road Transport",
                 desc: "Reliable ground logistics",
-                image: "logistics truck highway transport delivery",
+                image: "semi truck tractor trailer highway interstate transport route",
               },
               {
                 name: "Warehousing",
                 desc: "Secure storage solutions",
-                image: "warehouse storage facility logistics center",
+                image: "large warehouse storage inventory management fulfillment center",
               },
               {
                 name: "Last-Mile Delivery",
                 desc: "Final destination delivery",
-                image: "delivery van truck neighborhood distribution",
+                image: "delivery truck van residential area package distribution",
               },
               {
                 name: "Customs Clearance",
                 desc: "Complete documentation handling",
-                image: "customs border inspection logistics import export",
+                image: "customs border checkpoint import export documentation processing",
               },
             ].map((service) => (
               <div
@@ -121,7 +121,7 @@ const Page = () => {
                 className="bg-card rounded-lg border border-border hover:border-accent transition overflow-hidden"
               >
                 <img
-                  src={`/.jpg?key=ecvzr&height=200&width=300&query=${service.image}`}
+                  src={`/.jpg?height=200&width=300&query=${service.image}`}
                   alt={service.name}
                   className="w-full h-40 object-cover"
                 />
