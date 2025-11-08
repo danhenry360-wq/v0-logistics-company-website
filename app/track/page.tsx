@@ -152,8 +152,8 @@ export default function TrackPage() {
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <Package className="text-blue-600" size={28} />
+                        <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                          <Package className="text-red-600" size={28} />
                         </div>
                         <p className="text-sm text-muted-foreground mb-1">Destination</p>
                         <p className="font-semibold">{shipment.destination.city}</p>
