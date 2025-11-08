@@ -41,7 +41,7 @@ export default function AboutPage() {
                 transparency, and excellence.
               </p>
             </div>
-            <img src="/placeholder.svg?key=about1" alt="Company history" className="rounded-lg shadow-lg" />
+            <img src="/cargo-logistics-company-office-team-working-togeth.jpg" alt="Company history" className="rounded-lg shadow-lg" />
           </div>
 
           {/* Mission & Vision */}
@@ -138,10 +138,10 @@ export default function AboutPage() {
           </p>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { name: "Sarah Chen", role: "CEO & Founder", image: "/placeholder.svg?key=team1" },
-              { name: "Marcus Rodriguez", role: "COO", image: "/placeholder.svg?key=team2" },
-              { name: "Elena Petrova", role: "VP Operations", image: "/placeholder.svg?key=team3" },
-              { name: "James Thompson", role: "VP Technology", image: "/placeholder.svg?key=team4" },
+              { name: "Sarah Chen", role: "CEO & Founder", image: "/professional-ceo-portrait.png" },
+              { name: "Marcus Rodriguez", role: "COO", image: "/professional-coo-executive-portrait.jpg" },
+              { name: "Elena Petrova", role: "VP Operations", image: "/professional-operations-vp-portrait.jpg" },
+              { name: "James Thompson", role: "VP Technology", image: "/professional-technology-vp-portrait.jpg" },
             ].map((member, idx) => (
               <div
                 key={idx}

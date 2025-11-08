@@ -1,222 +1,181 @@
-"use client"
-
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Truck, Ship, Plane, Package, Clock, Shield, ArrowRight, MapPin, Users, Award } from "lucide-react"
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className="min-h-screen bg-background pt-16">
-      <Navbar />
-
+    <div className="w-full">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/80">
-        <div className="absolute inset-0">
-          <img
-            src="/cargo-truck-highway-sunset.jpg"
-            alt="Logistics background"
-            className="w-full h-full object-cover opacity-20"
-          />
+      <section className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/20 to-background">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+            Delivering Your World, One Shipment at a Time
+          </h1>
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-balance">
+            CargoCore Logistics provides professional global shipping, freight forwarding, and supply chain solutions
+            trusted by businesses worldwide.
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link
+              href="/quote"
+              className="px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition font-semibold"
+            >
+              Get Quote
+            </Link>
+            <Link
+              href="/services"
+              className="px-8 py-3 border border-accent text-accent rounded-lg hover:bg-accent/10 transition font-semibold"
+            >
+              Our Services
+            </Link>
+          </div>
         </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-primary-foreground">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Delivering Your World, One Shipment at a Time
-              </h1>
-              <p className="text-lg md:text-xl mb-8 opacity-90">
-                Global logistics solutions for air, sea, and road freight. Track shipments in real-time, get instant
-                quotes, and trust the professionals.
+      {/* Why Choose CargoCore */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-card">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-center">Why Choose CargoCore?</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-12">
+            We're committed to delivering excellence in every shipment with reliability, speed, and transparency.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-background p-6 rounded-lg border border-border">
+              <div className="text-4xl mb-4">🌍</div>
+              <h3 className="text-xl font-bold mb-2">Global Reach</h3>
+              <p className="text-muted-foreground">
+                150+ countries covered with reliable international logistics network
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8" asChild>
-                  <Link href="/track">
-                    Track Shipment <ArrowRight className="ml-2" size={20} />
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 bg-transparent"
-                  asChild
-                >
-                  <Link href="/quote">Request Quote</Link>
-                </Button>
-              </div>
-              <div className="flex gap-8 text-sm">
-                <div>
-                  <p className="text-2xl font-bold">150+</p>
-                  <p className="opacity-80">Countries</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">50K+</p>
-                  <p className="opacity-80">Shipments/Month</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">24/7</p>
-                  <p className="opacity-80">Support</p>
-                </div>
-              </div>
             </div>
-
-            <div className="hidden md:block">
-              <img
-                src="/cargo-container-logistics-network.jpg"
-                alt="Logistics illustration"
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
+            <div className="bg-background p-6 rounded-lg border border-border">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
+              <p className="text-muted-foreground">Express shipping options with real-time tracking and updates</p>
+            </div>
+            <div className="bg-background p-6 rounded-lg border border-border">
+              <div className="text-4xl mb-4">💼</div>
+              <h3 className="text-xl font-bold mb-2">Professional Team</h3>
+              <p className="text-muted-foreground">Experienced logistics experts ready to handle any shipment</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive logistics solutions tailored to your shipping needs
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">Our Services</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: Plane,
-                title: "Air Freight",
-                description: "Fast and reliable air cargo services for time-sensitive shipments worldwide.",
-                image: "/cargo-airplane-loading.jpg",
-              },
-              {
-                icon: Ship,
-                title: "Ocean Freight",
-                description: "Cost-effective ocean shipping for large volume shipments across continents.",
-                image: "/cargo-ship-containers.jpg",
-              },
-              {
-                icon: Truck,
-                title: "Road Transport",
-                description: "Flexible ground transportation with full tracking and insurance coverage.",
-                image: "/logistics-truck-delivery.jpg",
-              },
-              {
-                icon: Package,
-                title: "Warehousing",
-                description: "Secure storage facilities with inventory management and fulfillment services.",
-                image: "/warehouse-storage-facility.jpg",
-              },
-              {
-                icon: MapPin,
-                title: "Last-Mile Delivery",
-                description: "Final mile solutions ensuring your packages reach the exact destination.",
-                image: "/delivery-van-neighborhood.jpg",
-              },
-              {
-                icon: Clock,
-                title: "Real-Time Tracking",
-                description: "Live GPS tracking and instant notifications for complete visibility.",
-                image: "/real-time-gps-tracking-map.jpg",
-              },
-            ].map((service, idx) => {
-              const Icon = service.icon
-              return (
-                <div
-                  key={idx}
-                  className="group border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all"
-                >
-                  <img
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    className="w-full h-40 object-cover"
-                  />
-                  <div className="p-6">
-                    <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/30 transition">
-                      <Icon className="text-accent" size={24} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
-                    <Link
-                      href="/services"
-                      className="text-accent hover:text-accent/80 font-semibold inline-flex items-center gap-2"
-                    >
-                      Learn More <ArrowRight size={16} />
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
+              { name: "Air Freight", desc: "Fast international air cargo" },
+              { name: "Ocean Freight", desc: "Cost-effective sea shipping" },
+              { name: "Road Transport", desc: "Reliable ground logistics" },
+              { name: "Warehousing", desc: "Secure storage solutions" },
+              { name: "Last-Mile Delivery", desc: "Final destination delivery" },
+              { name: "Customs Clearance", desc: "Complete documentation handling" },
+            ].map((service) => (
+              <div
+                key={service.name}
+                className="bg-card p-6 rounded-lg border border-border hover:border-accent transition"
+              >
+                <h3 className="text-xl font-bold mb-2">{service.name}</h3>
+                <p className="text-muted-foreground">{service.desc}</p>
+              </div>
+            ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-              <Link href="/services">View All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-muted/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose LogisticsHub?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're committed to delivering excellence in every shipment
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Shield, title: "Secure & Insured", desc: "Full coverage and protection for your valuable cargo" },
-              { icon: Clock, title: "On-Time Delivery", desc: "99.2% on-time delivery rate across all routes" },
-              { icon: Award, title: "Industry Leading", desc: "ISO certified and recognized for excellence" },
-              { icon: Users, title: "Expert Team", desc: "500+ logistics professionals ready to help" },
-              { icon: MapPin, title: "Global Network", desc: "Partnerships in 150+ countries worldwide" },
-              { icon: Package, title: "Transparent Pricing", desc: "No hidden fees, competitive rates guaranteed" },
-            ].map((item, idx) => {
-              const Icon = item.icon
-              return (
-                <div key={idx} className="text-center">
-                  <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="text-accent" size={32} />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
-                </div>
-              )
-            })}
+          <div className="text-center mt-8">
+            <Link
+              href="/services"
+              className="px-8 py-3 border border-accent text-accent rounded-lg hover:bg-accent/10 transition font-semibold inline-block"
+            >
+              View All Services
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Ship?</h2>
-          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Get started with LogisticsHub today. Request a quote or track your shipment in seconds.
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-accent">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4 text-accent-foreground">Ready to Ship?</h2>
+          <p className="text-lg text-accent-foreground/90 mb-8">
+            Get an instant quote or track your existing shipment with CargoCore Logistics.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white" asChild>
-              <Link href="/quote">Get a Quote</Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
-              asChild
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link
+              href="/quote"
+              className="px-8 py-3 bg-accent-foreground text-accent rounded-lg hover:bg-accent-foreground/90 transition font-semibold"
             >
-              <Link href="/contact">Contact Us</Link>
-            </Button>
+              Get Quote Now
+            </Link>
+            <Link
+              href="/track"
+              className="px-8 py-3 border border-accent-foreground text-accent-foreground rounded-lg hover:bg-accent-foreground/10 transition font-semibold"
+            >
+              Track Shipment
+            </Link>
           </div>
         </div>
       </section>
 
-      <Footer />
-    </main>
+      {/* Footer */}
+      <footer className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 className="font-bold mb-4">CargoCore Logistics</h4>
+            <p className="text-muted-foreground text-sm">Professional global shipping and logistics solutions.</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/services" className="text-muted-foreground hover:text-foreground transition">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/track" className="text-muted-foreground hover:text-foreground transition">
+                  Track
+                </Link>
+              </li>
+              <li>
+                <Link href="/quote" className="text-muted-foreground hover:text-foreground transition">
+                  Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition">
+                  Testimonials
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Contact</h4>
+            <p className="text-muted-foreground text-sm mb-2">+1-800-LOGISTICS</p>
+            <p className="text-muted-foreground text-sm">support@cargocore.com</p>
+          </div>
+        </div>
+        <div className="border-t border-border pt-8 text-center text-muted-foreground text-sm">
+          <p>&copy; 2025 CargoCore Logistics. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   )
 }
+
+export default Page

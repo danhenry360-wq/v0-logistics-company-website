@@ -14,32 +14,38 @@ export default function TrackPage() {
   const [trackingNumber, setTrackingNumber] = useState("")
   const [shipment, setShipment] = useState<any>(null)
   const [searched, setSearched] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleTrack = (e: React.FormEvent) => {
+  const handleTrack = async (e: React.FormEvent) => {
     e.preventDefault()
     setSearched(true)
+    setIsLoading(true)
+    setError("")
 
-    // Mock tracking data
     if (trackingNumber.trim()) {
-      setShipment({
-        trackingNumber: trackingNumber,
-        status: "In Transit",
-        origin: { city: "Shanghai", country: "China", date: "2025-01-15" },
-        destination: { city: "New York", country: "USA", date: "2025-01-28" },
-        current: { city: "Los Angeles", country: "USA", date: "2025-01-22" },
-        weight: "250 kg",
-        value: "$5,000",
-        carrier: "LogisticsHub Air Freight",
-        events: [
-          { status: "Shipped", location: "Shanghai", date: "2025-01-15", time: "08:30 AM" },
-          { status: "In Transit", location: "Hong Kong Hub", date: "2025-01-17", time: "14:15 PM" },
-          { status: "Cleared Customs", location: "Los Angeles", date: "2025-01-22", time: "10:45 AM" },
-          { status: "Out for Delivery", location: "New York Distribution", date: "2025-01-28", time: "Today" },
-        ],
-      })
+      try {
+        const response = await fetch("/api/tracking/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ trackingNumber }),
+        })
+
+        if (response.ok) {
+          const data = await response.json()
+          setShipment(data)
+        } else {
+          setError("Shipment not found. Please check your tracking number.")
+          setShipment(null)
+        }
+      } catch (err) {
+        setError("Error searching for shipment. Please try again.")
+        setShipment(null)
+      }
     } else {
       setShipment(null)
     }
+    setIsLoading(false)
   }
 
   return (
@@ -66,9 +72,14 @@ export default function TrackPage() {
                 value={trackingNumber}
                 onChange={(e) => setTrackingNumber(e.target.value)}
                 className="flex-1"
+                disabled={isLoading}
               />
-              <Button type="submit" className="bg-accent hover:bg-accent/90 px-8 whitespace-nowrap">
-                Track
+              <Button
+                type="submit"
+                className="bg-accent hover:bg-accent/90 px-8 whitespace-nowrap"
+                disabled={isLoading}
+              >
+                {isLoading ? "Searching..." : "Track"}
               </Button>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -79,6 +90,15 @@ export default function TrackPage() {
           {/* Tracking Results */}
           {searched && (
             <div className="mt-12">
+              {error && (
+                <div className="bg-red-500/20 border border-red-500 rounded-lg p-6 mb-6">
+                  <p className="text-red-600 font-semibold flex items-center gap-2">
+                    <AlertCircle size={20} />
+                    {error}
+                  </p>
+                </div>
+              )}
+
               {shipment ? (
                 <div className="space-y-8">
                   {/* Quick Info */}
@@ -196,16 +216,19 @@ export default function TrackPage() {
                   </div>
                 </div>
               ) : (
-                <div className="bg-card border border-border rounded-lg p-12 text-center">
-                  <AlertCircle className="mx-auto text-muted-foreground mb-4" size={48} />
-                  <p className="text-lg font-semibold mb-2">No Shipment Found</p>
-                  <p className="text-muted-foreground mb-4">
-                    Please check your tracking number and try again. If you need help, contact our support team.
-                  </p>
-                  <Button variant="outline" asChild>
-                    <Link href="/contact">Get Help</Link>
-                  </Button>
-                </div>
+                !isLoading &&
+                searched && (
+                  <div className="bg-card border border-border rounded-lg p-12 text-center">
+                    <AlertCircle className="mx-auto text-muted-foreground mb-4" size={48} />
+                    <p className="text-lg font-semibold mb-2">No Shipment Found</p>
+                    <p className="text-muted-foreground mb-4">
+                      Please check your tracking number and try again. If you need help, contact our support team.
+                    </p>
+                    <Button variant="outline" asChild>
+                      <Link href="/contact">Get Help</Link>
+                    </Button>
+                  </div>
+                )
               )}
             </div>
           )}
@@ -220,7 +243,7 @@ export default function TrackPage() {
             <div className="bg-card border border-border rounded-lg p-6">
               <h3 className="font-semibold text-lg mb-2">Where can I find my tracking number?</h3>
               <p className="text-muted-foreground">
-                Your tracking number is included in your shipment confirmation email. It usually starts with "LH-"
+                Your tracking number is included in your shipment confirmation email. It usually starts with "CC-"
                 followed by the year and a numeric code.
               </p>
             </div>

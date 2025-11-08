@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "./ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
@@ -12,11 +11,9 @@ export function Navbar() {
     <nav className="fixed w-full top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-primary">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">
-              LH
-            </div>
-            LogisticsHub
+          <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-accent">
+            <img src="/logo.svg" alt="CargoCore" className="w-8 h-8" />
+            CargoCore
           </Link>
 
           {/* Desktop Menu */}
@@ -39,15 +36,6 @@ export function Navbar() {
             <Link href="/contact" className="text-foreground hover:text-primary transition">
               Contact
             </Link>
-          </div>
-
-          <div className="hidden md:flex gap-4">
-            <Button variant="outline" asChild>
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button className="bg-accent hover:bg-accent/90" asChild>
-              <Link href="/signup">Sign Up</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -78,14 +66,6 @@ export function Navbar() {
               <Link href="/contact" className="text-foreground hover:text-primary transition">
                 Contact
               </Link>
-              <div className="flex gap-2 mt-3">
-                <Button variant="outline" asChild className="flex-1 bg-transparent">
-                  <Link href="/login">Login</Link>
-                </Button>
-                <Button className="flex-1 bg-accent hover:bg-accent/90" asChild>
-                  <Link href="/signup">Sign Up</Link>
-                </Button>
-              </div>
             </div>
           </div>
         )}

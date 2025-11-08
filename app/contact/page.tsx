@@ -133,7 +133,7 @@ export default function ContactPage() {
 
               {/* Map Placeholder */}
               <div className="mt-8 rounded-lg overflow-hidden shadow-lg border border-border">
-                <img src="/placeholder.svg?key=map123" alt="Office location map" className="w-full h-64 object-cover" />
+                <img src="/office-location-map-for-cargocore-logistics-headqu.jpg" alt="Office location map" className="w-full h-64 object-cover" />
               </div>
             </div>
 
