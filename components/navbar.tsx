@@ -18,22 +18,22 @@ export function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
-            <Link href="/" className="text-foreground hover:text-primary transition">
+            <Link href="/" className="text-foreground hover:text-accent transition">
               Home
             </Link>
-            <Link href="/services" className="text-foreground hover:text-primary transition">
+            <Link href="/services" className="text-foreground hover:text-accent transition">
               Services
             </Link>
-            <Link href="/track" className="text-foreground hover:text-primary transition">
+            <Link href="/track" className="text-foreground hover:text-accent transition">
               Track
             </Link>
-            <Link href="/quote" className="text-foreground hover:text-primary transition">
+            <Link href="/quote" className="text-foreground hover:text-accent transition">
               Quote
             </Link>
-            <Link href="/about" className="text-foreground hover:text-primary transition">
+            <Link href="/about" className="text-foreground hover:text-accent transition">
               About
             </Link>
-            <Link href="/contact" className="text-foreground hover:text-primary transition">
+            <Link href="/contact" className="text-foreground hover:text-accent transition">
               Contact
             </Link>
           </div>
@@ -48,22 +48,22 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-border">
             <div className="flex flex-col gap-3 pt-4">
-              <Link href="/" className="text-foreground hover:text-primary transition">
+              <Link href="/" className="text-foreground hover:text-accent transition">
                 Home
               </Link>
-              <Link href="/services" className="text-foreground hover:text-primary transition">
+              <Link href="/services" className="text-foreground hover:text-accent transition">
                 Services
               </Link>
-              <Link href="/track" className="text-foreground hover:text-primary transition">
+              <Link href="/track" className="text-foreground hover:text-accent transition">
                 Track
               </Link>
-              <Link href="/quote" className="text-foreground hover:text-primary transition">
+              <Link href="/quote" className="text-foreground hover:text-accent transition">
                 Quote
               </Link>
-              <Link href="/about" className="text-foreground hover:text-primary transition">
+              <Link href="/about" className="text-foreground hover:text-accent transition">
                 About
               </Link>
-              <Link href="/contact" className="text-foreground hover:text-primary transition">
+              <Link href="/contact" className="text-foreground hover:text-accent transition">
                 Contact
               </Link>
             </div>
