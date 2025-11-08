@@ -11,6 +11,11 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true)
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [formData, setFormData] = useState({
+    senderName: "",
+    receiverName: "",
+    senderEmail: "",
+    receiverEmail: "",
+    trackingStatus: "Processing",
     originCity: "",
     originCountry: "",
     destinationCity: "",
@@ -62,6 +67,11 @@ export default function AdminDashboard() {
       setMessage(`Success! Tracking Number: ${data.trackingNumber}`)
       setCreatedTrackingNumber(data.trackingNumber)
       setFormData({
+        senderName: "",
+        receiverName: "",
+        senderEmail: "",
+        receiverEmail: "",
+        trackingStatus: "Processing",
         originCity: "",
         originCountry: "",
         destinationCity: "",
@@ -157,6 +167,78 @@ export default function AdminDashboard() {
                     )}
                   </div>
                 )}
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender&apos;s Name</label>
+                    <input
+                      type="text"
+                      name="senderName"
+                      value={formData.senderName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., John Smith"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Receiver&apos;s Name</label>
+                    <input
+                      type="text"
+                      name="receiverName"
+                      value={formData.receiverName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., Jane Doe"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender&apos;s Email</label>
+                    <input
+                      type="email"
+                      name="senderEmail"
+                      value={formData.senderEmail}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., john@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Receiver&apos;s Email</label>
+                    <input
+                      type="email"
+                      name="receiverEmail"
+                      value={formData.receiverEmail}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., jane@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Tracking Status</label>
+                  <select
+                    name="trackingStatus"
+                    value={formData.trackingStatus}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                  >
+                    <option>Processing</option>
+                    <option>Shipped</option>
+                    <option>In Transit</option>
+                    <option>Out for Delivery</option>
+                    <option>Delivered</option>
+                    <option>Delayed</option>
+                    <option>Cancelled</option>
+                  </select>
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
