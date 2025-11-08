@@ -121,7 +121,7 @@ const Page = () => {
                 className="bg-card rounded-lg border border-border hover:border-accent transition overflow-hidden"
               >
                 <img
-                  src={`/.jpg?height=200&width=300&query=${service.image}`}
+                  src="/placeholder.jpg"
                   alt={service.name}
                   className="w-full h-40 object-cover"
                 />

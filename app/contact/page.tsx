@@ -41,10 +41,17 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl opacity-90">Have questions? Our customer support team is here to help 24/7</p>
+      <section className="relative w-full h-[400px] overflow-hidden">
+        <img
+          src="/office-location-map-for-cargocore-logistics-headqu.jpg"
+          alt="Office location"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-5xl font-bold mb-6 text-white">Get In Touch</h1>
+            <p className="text-xl text-gray-100">Have questions? Our customer support team is here to help 24/7</p>
+          </div>
         </div>
       </section>
 
@@ -76,9 +83,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Email</h3>
                     <p className="text-muted-foreground mb-2">For general inquiries:</p>
-                    <p className="font-semibold">info@logisticshub.com</p>
+                    <p className="font-semibold">info@cargocore.com</p>
                     <p className="text-muted-foreground mb-2">For support:</p>
-                    <p className="font-semibold">support@logisticshub.com</p>
+                    <p className="font-semibold">support@cargocore.com</p>
                   </div>
                 </div>
 
@@ -102,7 +109,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Headquarters</h3>
                     <p className="text-muted-foreground">
-                      LogisticsHub Global
+                      CargoCore Global
                       <br />
                       123 Logistics Avenue
                       <br />
