@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-xl font-bold">CargoCore</h3>
+            <h3 className="text-xl font-bold">LogisticsHub</h3>
             <p className="text-sm opacity-90">Delivering your world, one shipment at a time.</p>
             <div className="flex gap-4 mt-2">
               <Link href="#" className="hover:opacity-80 transition">
@@ -110,7 +110,7 @@ export function Footer() {
               <Mail size={20} />
               <div>
                 <p className="text-sm opacity-80">Email</p>
-                <p className="font-semibold">info@cargocore.com</p>
+                <p className="font-semibold">info@logisticshub.com</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm opacity-80">&copy; 2025 CargoCore. All rights reserved.</p>
+          <p className="text-sm opacity-80">&copy; 2025 LogisticsHub. All rights reserved.</p>
           <div className="flex gap-6 text-sm">
             <Link href="#" className="hover:opacity-80 transition">
               Privacy Policy
