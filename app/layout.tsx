@@ -131,6 +131,17 @@ export default function RootLayout({
                   </Link>
                 </div>
 
+                <div className="hidden md:flex gap-4">
+                  <Link href="/login" className="px-4 py-2 border border-border rounded hover:bg-muted transition">
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="px-4 py-2 bg-accent text-accent-foreground rounded hover:bg-accent/90 transition"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
               </div>
             </div>
           </nav>
