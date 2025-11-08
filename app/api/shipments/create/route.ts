@@ -41,11 +41,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
 
     const {
-      senderName,
-      receiverName,
-      senderEmail,
-      receiverEmail,
-      trackingStatus,
       originCity,
       originCountry,
       destinationCity,
@@ -58,20 +53,7 @@ export async function POST(request: NextRequest) {
     } = body
 
     // Validation
-    if (
-      !senderName ||
-      !receiverName ||
-      !senderEmail ||
-      !receiverEmail ||
-      !trackingStatus ||
-      !originCity ||
-      !originCountry ||
-      !destinationCity ||
-      !destinationCountry ||
-      !weight ||
-      !value ||
-      !serviceType
-    ) {
+    if (!originCity || !originCountry || !destinationCity || !destinationCountry || !weight || !value || !serviceType) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
@@ -81,11 +63,7 @@ export async function POST(request: NextRequest) {
     // Create new shipment
     const newShipment = {
       trackingNumber,
-      senderName,
-      receiverName,
-      senderEmail,
-      receiverEmail,
-      status: trackingStatus,
+      status: "Processing",
       origin: { city: originCity, country: originCountry, date: new Date().toISOString().split("T")[0] },
       destination: { city: destinationCity, country: destinationCountry, date: estimatedDelivery },
       current: { city: originCity, country: originCountry, date: new Date().toISOString().split("T")[0] },
@@ -95,7 +73,7 @@ export async function POST(request: NextRequest) {
       description,
       events: [
         {
-          status: trackingStatus,
+          status: "Processing",
           location: `${originCity}, ${originCountry}`,
           date: new Date().toISOString().split("T")[0],
           time: new Date().toLocaleTimeString(),
