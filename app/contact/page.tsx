@@ -6,7 +6,6 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Mail, Phone, MapPin, Clock, MessageSquare } from "lucide-react"
 
@@ -38,8 +37,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background pt-16">
-      <Navbar />
-
       {/* Header */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -76,9 +73,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Email</h3>
                     <p className="text-muted-foreground mb-2">For general inquiries:</p>
-                    <p className="font-semibold">info@logisticshub.com</p>
+                    <p className="font-semibold">support@cargocore.com</p>
                     <p className="text-muted-foreground mb-2">For support:</p>
-                    <p className="font-semibold">support@logisticshub.com</p>
+                    <p className="font-semibold">support@cargocore.com</p>
                   </div>
                 </div>
 
@@ -102,7 +99,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Headquarters</h3>
                     <p className="text-muted-foreground">
-                      LogisticsHub Global
+                      CargoCore Global
                       <br />
                       123 Logistics Avenue
                       <br />
@@ -133,7 +130,7 @@ export default function ContactPage() {
 
               {/* Map Placeholder */}
               <div className="mt-8 rounded-lg overflow-hidden shadow-lg border border-border">
-                <img src="/office-location-map-for-cargocore-logistics-headqu.jpg" alt="Office location map" className="w-full h-64 object-cover" />
+                <img src="/office-location-map-headquarters.jpg" alt="Office location map" className="w-full h-64 object-cover" />
               </div>
             </div>
 

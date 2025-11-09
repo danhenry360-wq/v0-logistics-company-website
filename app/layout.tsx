@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import Link from "next/link"
+import Navbar from "@/components/navbar"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -98,53 +98,7 @@ export default function RootLayout({
       <body className={`${_geist.className} font-sans antialiased`}>
         <div className="flex flex-col min-h-screen">
           {/* Navbar wrapper */}
-          <nav className="fixed w-full top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-accent">
-                  <svg className="w-8 h-8" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="15" y="30" width="25" height="30" fill="currentColor" rx="2" />
-                    <rect x="60" y="20" width="25" height="50" fill="currentColor" rx="2" />
-                    <circle cx="50" cy="15" r="8" fill="currentColor" />
-                  </svg>
-                  CargoCore
-                </Link>
-
-                <div className="hidden md:flex gap-8">
-                  <Link href="/" className="text-foreground hover:text-accent transition">
-                    Home
-                  </Link>
-                  <Link href="/services" className="text-foreground hover:text-accent transition">
-                    Services
-                  </Link>
-                  <Link href="/track" className="text-foreground hover:text-accent transition">
-                    Track
-                  </Link>
-                  <Link href="/quote" className="text-foreground hover:text-accent transition">
-                    Quote
-                  </Link>
-                  <Link href="/about" className="text-foreground hover:text-accent transition">
-                    About
-                  </Link>
-                  <Link href="/contact" className="text-foreground hover:text-accent transition">
-                    Contact
-                  </Link>
-                </div>
-
-                <div className="hidden md:flex gap-4">
-                  <Link href="/login" className="px-4 py-2 border border-border rounded hover:bg-muted transition">
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="px-4 py-2 bg-accent text-accent-foreground rounded hover:bg-accent/90 transition"
-                  >
-                    Sign Up
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </nav>
+          <Navbar />
 
           {/* Main content */}
           <main className="flex-1 pt-16">{children}</main>
