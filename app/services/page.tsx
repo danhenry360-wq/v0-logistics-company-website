@@ -36,7 +36,8 @@ export default function ServicesPage() {
                   <h2 className="text-4xl font-bold">Air Freight</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Our Air Freight service is the fastest solution for time-critical and high-value cargo. We offer a range of options from express next-day delivery to cost-effective consolidated services. Our dedicated team manages all documentation, including customs pre-clearance, to ensure your shipment moves without delay. We specialize in temperature-controlled and hazardous materials transport.
+                  Fast and reliable air cargo services for time-sensitive shipments. Perfect for electronics,
+                  pharmaceuticals, and urgent deliveries worldwide.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -72,7 +73,8 @@ export default function ServicesPage() {
                   <h2 className="text-4xl font-bold">Ocean Freight</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  The most economical choice for large-volume international shipments. We provide Full Container Load (FCL) and Less than Container Load (LCL) options, along with specialized services for oversized and project cargo. Our strong relationships with major global carriers ensure competitive rates and reliable sailing schedules on all major trade lanes.
+                  Cost-effective ocean shipping for large volume shipments across continents. Ideal for bulk cargo and
+                  regular scheduled routes.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -114,7 +116,8 @@ export default function ServicesPage() {
                   <h2 className="text-4xl font-bold">Road Transport</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Offering flexible and reliable ground transportation across North America and Europe. Our modern fleet includes dry vans, flatbeds, and refrigerated trailers. Every truck is equipped with real-time GPS tracking, providing you with minute-by-minute visibility of your cargo. We handle everything from full truckload (FTL) to complex multi-stop deliveries.
+                  Flexible ground transportation with full tracking and insurance coverage. Available for domestic and
+                  cross-border shipments.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -150,7 +153,8 @@ export default function ServicesPage() {
                   <h2 className="text-4xl font-bold">Warehousing</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Our strategically located, secure warehousing facilities offer more than just storage. We provide a full suite of value-added services, including inventory management, pick-and-pack, cross-docking, and reverse logistics. Our WMS integrates seamlessly with your systems, giving you real-time control over your stock.
+                  Secure storage facilities with inventory management and fulfillment services. Strategic locations for
+                  optimal distribution.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -192,7 +196,8 @@ export default function ServicesPage() {
                   <h2 className="text-4xl font-bold">Last-Mile Delivery</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  The final, crucial step in the supply chain. We ensure fast, reliable, and customer-friendly delivery to the final destination. Services include scheduled delivery, white-glove service, and proof-of-delivery confirmation, perfect for e-commerce and B2C operations.
+                  Final mile solutions ensuring your packages reach the exact destination. Perfect for B2C and
+                  e-commerce operations.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">

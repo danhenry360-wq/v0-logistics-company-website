@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Footer } from "@/components/footer" // Ensure this is the correct, unified component
 
 const Page = () => {
   return (
@@ -38,7 +37,7 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Why Choose CargoCore - Refined */}
+      {/* Why Choose CargoCore */}
       <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">Why Choose CargoCore?</h2>
@@ -48,73 +47,37 @@ const Page = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <h3 className="text-xl font-bold mb-2 text-accent">Reliability</h3>
+              <img
+                src="/global-supply-chain-network-world-map-distribution.jpg"
+                alt="Global supply chain network"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">Global Reach</h3>
               <p className="text-muted-foreground">
-                We commit to on-time delivery and transparent communication, ensuring your supply chain remains uninterrupted. Our global network is designed for resilience and consistency.
+                150+ countries covered with reliable international logistics network
               </p>
             </div>
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <h3 className="text-xl font-bold mb-2 text-accent">Innovation</h3>
-              <p className="text-muted-foreground">
-                We leverage cutting-edge logistics technology, including real-time GPS tracking and advanced inventory management systems, to provide smart, efficient, and cost-effective solutions.
-              </p>
+              <img
+                src="/express-delivery-fast-shipping-drone-package-racin.jpg"
+                alt="Express delivery service"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
+              <p className="text-muted-foreground">Express shipping options with real-time tracking and updates</p>
             </div>
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <h3 className="text-xl font-bold mb-2 text-accent">Customer-Centricity</h3>
-              <p className="text-muted-foreground">
-                Your business is our priority. Our dedicated team of logistics experts provides personalized support and tailor-made solutions to meet your unique shipping challenges.
-              </p>
+              <img
+                src="/professional-logistics-workers-team-warehouse-mana.jpg"
+                alt="Professional logistics team"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2">Professional Team</h3>
+              <p className="text-muted-foreground">Experienced logistics experts ready to handle any shipment</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Image Feature Section */}
-      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold">Integrated Supply Chain Solutions</h2>
-            <p className="text-lg text-muted-foreground">
-              From the first mile to the last, CargoCore offers a fully integrated suite of services. Our end-to-end management reduces complexity and ensures seamless coordination across all modes of transport.
-            </p>
-            <ul className="space-y-3 text-lg">
-              <li className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Global Network in 150+ Countries</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Real-Time Tracking and Visibility</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Dedicated 24/7 Customer Support</span>
-              </li>
-            </ul>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center px-8 py-3 border border-accent text-accent rounded-lg hover:bg-accent/10 transition font-semibold"
-            >
-              Learn More About Us
-            </Link>
-          </div>
-          <img
-            src="/integrated-supply-chain-logistics-network.jpg"
-            alt="Integrated supply chain logistics network"
-            className="rounded-lg shadow-xl w-full h-96 object-cover"
-          />
-        </div>
-      </section>
-
-      {/* The CargoCore Promise: Built on Trust and Technology - Removed to simplify layout and avoid redundancy */}
-
-
 
       {/* Services Preview with Images */}
       <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -125,32 +88,32 @@ const Page = () => {
               {
                 name: "Air Freight",
                 desc: "Fast international air cargo",
-                image: "/air-freight-cargo-loading-operations.jpg",
+                image: "commercial airplane cargo door open loading freight international airport",
               },
               {
                 name: "Ocean Freight",
                 desc: "Cost-effective sea shipping",
-                image: "/ocean-freight-container-terminal.jpg",
+                image: "container ship vessel ocean port international maritime logistics",
               },
               {
                 name: "Road Transport",
                 desc: "Reliable ground logistics",
-                image: "/road-transport-fleet-professional.jpg",
+                image: "semi truck tractor trailer highway interstate transport route",
               },
               {
                 name: "Warehousing",
                 desc: "Secure storage solutions",
-                image: "/warehouse-management-system-professional.jpg",
+                image: "large warehouse storage inventory management fulfillment center",
               },
               {
                 name: "Last-Mile Delivery",
                 desc: "Final destination delivery",
-                image: "/last-mile-delivery-professional.jpg",
+                image: "delivery truck van residential area package distribution",
               },
               {
                 name: "Customs Clearance",
                 desc: "Complete documentation handling",
-                image: "/customs-clearance-professional.jpg",
+                image: "customs border checkpoint import export documentation processing",
               },
             ].map((service) => (
               <div
@@ -158,7 +121,7 @@ const Page = () => {
                 className="bg-card rounded-lg border border-border hover:border-accent transition overflow-hidden"
               >
                 <img
-                  src={service.image}
+                  src={`/.jpg?height=200&width=300&query=${service.image}`}
                   alt={service.name}
                   className="w-full h-40 object-cover"
                 />
@@ -204,7 +167,63 @@ const Page = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 className="font-bold mb-4">CargoCore Logistics</h4>
+            <p className="text-muted-foreground text-sm">Professional global shipping and logistics solutions.</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/services" className="text-muted-foreground hover:text-foreground transition">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/track" className="text-muted-foreground hover:text-foreground transition">
+                  Track
+                </Link>
+              </li>
+              <li>
+                <Link href="/quote" className="text-muted-foreground hover:text-foreground transition">
+                  Quote
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition">
+                  Testimonials
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Contact</h4>
+            <p className="text-muted-foreground text-sm mb-2">+1-800-LOGISTICS</p>
+            <p className="text-muted-foreground text-sm">support@cargocore.com</p>
+          </div>
+        </div>
+        <div className="border-t border-border pt-8 text-center text-muted-foreground text-sm">
+          <p>&copy; 2025 CargoCore Logistics. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   )
 }
