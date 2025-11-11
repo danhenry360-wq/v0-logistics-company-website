@@ -88,32 +88,32 @@ const Page = () => {
               {
                 name: "Air Freight",
                 desc: "Fast international air cargo",
-                image: "commercial airplane cargo door open loading freight international airport",
+                image: "/air-freight-cargo-loading-operations.jpg",
               },
               {
                 name: "Ocean Freight",
                 desc: "Cost-effective sea shipping",
-                image: "container ship vessel ocean port international maritime logistics",
+                image: "/ocean-freight-container-terminal.jpg",
               },
               {
                 name: "Road Transport",
                 desc: "Reliable ground logistics",
-                image: "semi truck tractor trailer highway interstate transport route",
+                image: "/road-transport-fleet-professional.jpg",
               },
               {
                 name: "Warehousing",
                 desc: "Secure storage solutions",
-                image: "large warehouse storage inventory management fulfillment center",
+                image: "/warehouse-management-system-professional.png",
               },
               {
                 name: "Last-Mile Delivery",
                 desc: "Final destination delivery",
-                image: "delivery truck van residential area package distribution",
+                image: "/last-mile-delivery-professional.jpg",
               },
               {
                 name: "Customs Clearance",
                 desc: "Complete documentation handling",
-                image: "customs border checkpoint import export documentation processing",
+                image: "/customs-clearance-professional.webp",
               },
             ].map((service) => (
               <div
@@ -121,7 +121,7 @@ const Page = () => {
                 className="bg-card rounded-lg border border-border hover:border-accent transition overflow-hidden"
               >
                 <img
-                  src={`/.jpg?height=200&width=300&query=${service.image}`}
+                  src={service.image}
                   alt={service.name}
                   className="w-full h-40 object-cover"
                 />
