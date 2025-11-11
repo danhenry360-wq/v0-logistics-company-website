@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/footer" // Ensure this is the correct, unified component
 
 const Page = () => {
   return (

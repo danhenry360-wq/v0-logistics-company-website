@@ -5,14 +5,18 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { LogOut, Package, Users, TrendingUp, BarChart3, Plus, X } from "lucide-react"
+import { LogOut, Package, Users, TrendingUp, BarChart3, Plus, X, MoreVertical } from "lucide-react"
 
 export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true)
   const [showCreateForm, setShowCreateForm] = useState(false)
   const [formData, setFormData] = useState({
+    senderName: "",
+    senderEmail: "",
     originCity: "",
     originCountry: "",
+    receiverName: "",
+    receiverEmail: "",
     destinationCity: "",
     destinationCountry: "",
     weight: "",
@@ -62,8 +66,12 @@ export default function AdminDashboard() {
       setMessage(`Success! Tracking Number: ${data.trackingNumber}`)
       setCreatedTrackingNumber(data.trackingNumber)
       setFormData({
+        senderName: "",
+        senderEmail: "",
         originCity: "",
         originCountry: "",
+        receiverName: "",
+        receiverEmail: "",
         destinationCity: "",
         destinationCountry: "",
         weight: "",
@@ -158,6 +166,34 @@ export default function AdminDashboard() {
                   </div>
                 )}
 
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Sender Information</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender Name</label>
+                    <input
+                      type="text"
+                      name="senderName"
+                      value={formData.senderName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender Email (for notifications)</label>
+                    <input
+                      type="email"
+                      name="senderEmail"
+                      value={formData.senderEmail}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., john.doe@example.com"
+                    />
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Origin Location</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Origin City</label>
@@ -171,8 +207,7 @@ export default function AdminDashboard() {
                       placeholder="e.g., Shanghai"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Origin Country</label>
+                  <d                  <label className="block text-sm font-semibold mb-2">Origin Country</label>
                     <input
                       type="text"
                       name="originCountry"
@@ -184,7 +219,62 @@ export default function AdminDashboard() {
                     />
                   </div>
                 </div>
-
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Receiver Information</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Receiver Name</label>
+                    <input
+                      type="text"
+                      name="receiverName"
+                      value={formData.receiverName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., Jane Smith"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Receiver Email</label>
+                    <input
+                      type="email"
+                      name="receiverEmail"
+                      value={formData.receiverEmail}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., jane.smith@example.com"
+                    />
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Destination Location</h4>
+                <div className="grid md:grid-cols-2 gap-4"> mb-2 border-b border-border pb-1">Sender Information</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender Name</label>
+                    <input
+                      type="text"
+                      name="senderName"
+                      value={formData.senderName}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Sender Email (for notifications)</label>
+                    <input
+                      type="email"
+                      name="senderEmail"
+                      value={formData.senderEmail}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:border-accent"
+                      placeholder="e.g., john.doe@example.com"
+                    />
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Origin Location</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Destination City</label>
@@ -212,6 +302,7 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Package Details</h4>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Weight</label>
@@ -254,6 +345,7 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Timeline</h4>
                 <div>
                   <label className="block text-sm font-semibold mb-2">Estimated Delivery Date</label>
                   <input
@@ -342,55 +434,70 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Recent Shipments */}
-        <div className="bg-card border border-border rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-6">Recent Shipments</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-4 font-semibold">Tracking ID</th>
-                  <th className="text-left py-3 px-4 font-semibold">Origin</th>
-                  <th className="text-left py-3 px-4 font-semibold">Destination</th>
-                  <th className="text-left py-3 px-4 font-semibold">Status</th>
-                  <th className="text-left py-3 px-4 font-semibold">Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { id: "CC-2025-12345", origin: "Shanghai", dest: "New York", status: "In Transit", value: "$5,000" },
-                  { id: "CC-2025-54321", origin: "Rotterdam", dest: "Hamburg", status: "Delivered", value: "$25,000" },
-                  { id: "CC-2025-67890", origin: "Dubai", dest: "London", status: "In Transit", value: "$12,500" },
-                  {
-                    id: "CC-2025-11111",
-                    origin: "Singapore",
-                    dest: "Los Angeles",
-                    status: "Processing",
-                    value: "$8,750",
-                  },
-                ].map((shipment) => (
-                  <tr key={shipment.id} className="border-b border-border hover:bg-muted/50 transition">
-                    <td className="py-3 px-4 font-semibold text-accent">{shipment.id}</td>
-                    <td className="py-3 px-4">{shipment.origin}</td>
-                    <td className="py-3 px-4">{shipment.dest}</td>
-                    <td className="py-3 px-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          shipment.status === "Delivered"
-                            ? "bg-green-500/20 text-green-600"
-                            : shipment.status === "In Transit"
-                              ? "bg-blue-500/20 text-blue-600"
-                              : "bg-yellow-500/20 text-yellow-600"
-                        }`}
-                      >
-                        {shipment.status}
-                      </span>
-                    </td>
-                    <td className="py-3 px-4">{shipment.value}</td>
+        {/* Recent Shipments & Revenue Chart */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 bg-card border border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold mb-6">Recent Shipments</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 font-semibold">Tracking ID</th>
+                    <th className="text-left py-3 px-4 font-semibold">Origin</th>
+                    <th className="text-left py-3 px-4 font-semibold">Destination</th>
+                    <th className="text-left py-3 px-4 font-semibold">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold">Value</th>
+                    <th className="text-left py-3 px-4 font-semibold">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {[
+                    { id: "CC-2025-12345", origin: "Shanghai", dest: "New York", status: "In Transit", value: "$5,000" },
+                    { id: "CC-2025-54321", origin: "Rotterdam", dest: "Hamburg", status: "Delivered", value: "$25,000" },
+                    { id: "CC-2025-67890", origin: "Dubai", dest: "London", status: "In Transit", value: "$12,500" },
+                    {
+                      id: "CC-2025-11111",
+                      origin: "Singapore",
+                      dest: "Los Angeles",
+                      status: "Processing",
+                      value: "$8,750",
+                    },
+                  ].map((shipment) => (
+                    <tr key={shipment.id} className="border-b border-border hover:bg-muted/50 transition">
+                      <td className="py-3 px-4 font-semibold text-accent">{shipment.id}</td>
+                      <td className="py-3 px-4">{shipment.origin}</td>
+                      <td className="py-3 px-4">{shipment.dest}</td>
+                      <td className="py-3 px-4">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            shipment.status === "Delivered"
+                              ? "bg-green-500/20 text-green-600"
+                              : shipment.status === "In Transit"
+                                ? "bg-blue-500/20 text-blue-600"
+                                : "bg-yellow-500/20 text-yellow-600"
+                          }`}
+                        >
+                          {shipment.status}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4">{shipment.value}</td>
+                      <td className="py-3 px-4">
+                        <Button variant="ghost" size="icon">
+                          <MoreVertical size={20} />
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="bg-card border border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold mb-6">Revenue Overview</h3>
+            <div className="h-64 bg-muted/40 rounded-lg flex items-center justify-center">
+              <p className="text-muted-foreground">Revenue chart placeholder</p>
+            </div>
           </div>
         </div>
       </main>
