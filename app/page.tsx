@@ -229,5 +229,3 @@ const Page = () => {
 }
 
 export default Page
-
-// Forced commit to trigger Vercel rebuild for new images
