@@ -13,7 +13,7 @@ export default function TestimonialsPage() {
       company: "TechCorp Industries",
       role: "Supply Chain Director",
       image: "/placeholder.svg?key=cust1",
-      text: "LogisticsHub has been instrumental in streamlining our global supply chain. Their real-time tracking and reliable delivery have reduced our logistics costs by 20% while improving customer satisfaction.",
+      text: "CargoCore transformed our supply chain. Their Ocean Freight service is consistently reliable, and their customs team is second to none. We've seen a 15% reduction in transit time.",
       rating: 5,
     },
     {
@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
       company: "Fashion & Style LLC",
       role: "CEO",
       image: "/placeholder.svg?key=cust3",
-      text: "As an e-commerce company, reliable shipping is critical. LogisticsHub ensures our customers receive their orders quickly and safely. Their last-mile delivery service is second to none.",
+      text: "The Last-Mile Delivery service is a game-changer for our e-commerce business. Fast, trackable, and our customers love the communication. Highly recommend.",
       rating: 5,
     },
     {
@@ -37,7 +37,7 @@ export default function TestimonialsPage() {
       company: "Pharma Solutions Inc.",
       role: "Regulatory Affairs Manager",
       image: "/placeholder.svg?key=cust4",
-      text: "For sensitive pharmaceutical shipments, we need absolute reliability and compliance. LogisticsHub exceeds our expectations with their temperature-controlled options and meticulous documentation.",
+      text: "For temperature-sensitive Air Freight, CargoCore is our only choice. Their attention to detail and compliance with cold chain logistics is flawless.",
       rating: 5,
     },
     {
@@ -45,7 +45,7 @@ export default function TestimonialsPage() {
       company: "Pacific Trade Exports",
       role: "Export Manager",
       image: "/placeholder.svg?key=cust5",
-      text: "We ship hundreds of containers annually to diverse destinations. LogisticsHub simplifies the entire process with their intuitive platform and expert guidance through complex customs requirements.",
+      text: "We ship hundreds of containers annually to diverse destinations. CargoCore Logistics simplifies the entire process with their intuitive platform and expert guidance through complex customs requirements.",
       rating: 5,
     },
     {
@@ -53,7 +53,7 @@ export default function TestimonialsPage() {
       company: "Fresh Foods International",
       role: "Logistics Coordinator",
       image: "/placeholder.svg?key=cust6",
-      text: "Perishable goods demand precision and care. LogisticsHub's commitment to quality handling and their advanced cooling solutions have made them our preferred logistics partner.",
+      text: "Perishable goods demand precision and care. CargoCore Logistics's commitment to quality handling and their advanced cooling solutions have made them our preferred logistics partner.",
       rating: 5,
     },
   ]
@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
       {/* Header */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Customer Testimonials & Partners</h1>
+          <h1 className="text-5xl font-bold mb-6">What Our Clients Say & Strategic Partners</h1>
           <p className="text-xl opacity-90">Trusted by leading companies worldwide</p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default function TestimonialsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of satisfied customers who've transformed their logistics with LogisticsHub
+              We measure our success by the success of our clients. Read what global businesses have to say about partnering with CargoCore Logistics.
             </p>
           </div>
 
@@ -205,7 +205,7 @@ export default function TestimonialsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Join Our Growing Network</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Become part of the LogisticsHub family and experience the difference reliable logistics can make.
+            Become part of the CargoCore Logistics family and experience the difference reliable logistics can make.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>

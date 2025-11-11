@@ -14,8 +14,8 @@ export default function AboutPage() {
       {/* Header */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">About LogisticsHub</h1>
-          <p className="text-xl opacity-90">Delivering your world, one shipment at a time since 2008</p>
+          <h1 className="text-5xl font-bold mb-6">About CargoCore Logistics</h1>
+          <p className="text-xl opacity-90">Simplifying Global Logistics Since 2010</p>
         </div>
       </section>
 
@@ -26,9 +26,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Founded in 2008, LogisticsHub began as a small freight forwarding company with a big vision: to
-                revolutionize global logistics. What started with a single office and a handful of dedicated
-                professionals has grown into a trusted partner for businesses worldwide.
+                FoundFounded in 2010, CargoCore Logistics began as a small freight forwarding company with a big vision: to revolutionize global logistics. What started with a single office and a handful of dedicated professionals has grown into a trusted partner for businesses worldwide. Key milestones include: 2012: Launched Air Freight. 2015: Established first international hub in Shanghai. 2018: Integrated WMS. 2022: Expanded network to 150+ countries.e.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
                 Our journey has been defined by continuous innovation, unwavering commitment to customer service, and a
@@ -36,7 +34,7 @@ export default function AboutPage() {
                 infrastructure, and talent to ensure that every shipment is handled with the utmost care and efficiency.
               </p>
               <p className="text-lg text-muted-foreground">
-                Today, LogisticsHub operates in 150+ countries, handles over 50,000 shipments monthly, and partners with
+                Today, CargoCore Logistics operates in 150+ countries, handles over 50,000 shipments monthly, and partners with
                 industry leaders across all sectors. We remain committed to our founding principles: reliability,
                 transparency, and excellence.
               </p>
@@ -49,23 +47,19 @@ export default function AboutPage() {
             <div className="bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <Globe className="text-accent" size={28} />
-                Our Mission
+                Our Mission: Simplifying Global Logistics
               </h3>
               <p className="text-muted-foreground">
-                To provide world-class logistics solutions that connect businesses globally, streamline supply chains,
-                and deliver value at every touchpoint. We're committed to being our clients' most trusted logistics
-                partner.
+                To be the most trusted and technologically advanced logistics partner, simplifying the complexities of global trade for businesses of all sizes.
               </p>
             </div>
             <div className="bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <TrendingUp className="text-accent" size={28} />
-                Our Vision
+                Our Vision: Setting the Standard
               </h3>
               <p className="text-muted-foreground">
-                To be the world's most innovative and customer-centric logistics company, setting industry standards for
-                efficiency, sustainability, and service excellence while enabling businesses to thrive in a connected
-                global economy.
+                To create a seamless, sustainable, and interconnected global supply chain where distance is no barrier to commerce.
               </p>
             </div>
           </div>
@@ -187,7 +181,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Work With Us?</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Join thousands of businesses that trust LogisticsHub for their shipping needs.
+            Join tJoin thousands of businesses that trust CargoCore Logistics for their shipping needs..
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>

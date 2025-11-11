@@ -51,7 +51,7 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-bold mb-8">Connect with Our Global Team</h2>
 
               <div className="space-y-8">
                 <div className="flex gap-6">
@@ -97,15 +97,17 @@ export default function ContactPage() {
                     <MapPin className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Headquarters</h3>
+                    <h3 className="font-semibold mb-2">North American Headquarters</h3>
                     <p className="text-muted-foreground">
-                      CargoCore Global
-                      <br />
-                      123 Logistics Avenue
-                      <br />
-                      New York, NY 10001
-                      <br />
-                      United States
+                      123 Global Logistics Center, New York, NY 10001
+                    </p>
+                    <h3 className="font-semibold mb-2 mt-4">Asia-Pacific Hub</h3>
+                    <p className="text-muted-foreground">
+                      Unit 405, Trade Tower, Shanghai, China
+                    </p>
+                    <h3 className="font-semibold mb-2 mt-4">European Operations</h3>
+                    <p className="text-muted-foreground">
+                      Logistics Park, Berlin, Germany
                     </p>
                   </div>
                 </div>
@@ -137,6 +139,9 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                We operate 24/7 to support your global logistics needs. Reach out to us with any questions or custom requests.
+              </p>
 
               {submitted ? (
                 <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-8 text-center h-96 flex flex-col items-center justify-center">

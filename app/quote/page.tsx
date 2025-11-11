@@ -66,9 +66,9 @@ export default function QuotePage() {
       {/* Header */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Request a Quote</h1>
+          <h1 className="text-5xl font-bold mb-6">Get Your Competitive Logistics Quote</h1>
           <p className="text-xl opacity-90">
-            Get a competitive shipping quote in minutes. Our team will respond within 24 hours.
+            Our instant quote system provides you with transparent, all-inclusive pricing for your shipment. Fill out the form below, and a dedicated logistics specialist will contact you within 24 hours to finalize your booking. We offer customized solutions for complex or high-volume freight.
           </p>
         </div>
       </section>

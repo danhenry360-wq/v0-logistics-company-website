@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Footer } from "@/components/footer"
 
 const Page = () => {
   return (
@@ -47,6 +48,32 @@ const Page = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
+              <h3 className="text-xl font-bold mb-2 text-accent">Reliability</h3>
+              <p className="text-muted-foreground">
+                We commit to on-time delivery and transparent communication, ensuring your supply chain remains uninterrupted. Our global network is designed for resilience and consistency.
+              </p>
+            </div>
+            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
+              <h3 className="text-xl font-bold mb-2 text-accent">Innovation</h3>
+              <p className="text-muted-foreground">
+                We leverage cutting-edge logistics technology, including real-time GPS tracking and advanced inventory management systems, to provide smart, efficient, and cost-effective solutions.
+              </p>
+            </div>
+            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
+              <h3 className="text-xl font-bold mb-2 text-accent">Customer-Centricity</h3>
+              <p className="text-muted-foreground">
+                Your business is our priority. Our dedicated team of logistics experts provides personalized support and tailor-made solutions to meet your unique shipping challenges.
+              </p>
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-bold mb-4 text-center mt-20">The CargoCore Promise: Built on Trust and Technology</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-12">
+            At CargoCore Logistics, we don't just move freight; we build partnerships. Our operations are grounded in a set of core values that ensure every client receives the highest standard of service, from first mile to last mile.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
               <img
                 src="/global-supply-chain-network-world-map-distribution.jpg"
                 alt="Global supply chain network"
@@ -76,6 +103,21 @@ const Page = () => {
               <p className="text-muted-foreground">Experienced logistics experts ready to handle any shipment</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Global Network & Reach */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-card">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">Connecting Continents: Our Global Footprint</h2>
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-8">
+            With a presence in over 150 countries and strategic hubs in major global trade centers, CargoCore Logistics offers seamless international shipping capabilities. Whether you need to move a single pallet or manage a complex, multi-modal supply chain, our integrated network ensures your cargo reaches its destination safely and efficiently, anywhere in the world. We handle all aspects of cross-border logistics, including customs clearance and regulatory compliance, so you can focus on your core business.
+          </p>
+          <img
+            src="/global-map-network.jpg"
+            alt="Global logistics network map"
+            className="w-full max-w-5xl mx-auto rounded-lg shadow-xl"
+          />
         </div>
       </section>
 
@@ -167,63 +209,7 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h4 className="font-bold mb-4">CargoCore Logistics</h4>
-            <p className="text-muted-foreground text-sm">Professional global shipping and logistics solutions.</p>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-foreground transition">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/track" className="text-muted-foreground hover:text-foreground transition">
-                  Track
-                </Link>
-              </li>
-              <li>
-                <Link href="/quote" className="text-muted-foreground hover:text-foreground transition">
-                  Quote
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-muted-foreground hover:text-foreground transition">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition">
-                  Testimonials
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <p className="text-muted-foreground text-sm mb-2">+1-800-LOGISTICS</p>
-            <p className="text-muted-foreground text-sm">support@cargocore.com</p>
-          </div>
-        </div>
-        <div className="border-t border-border pt-8 text-center text-muted-foreground text-sm">
-          <p>&copy; 2025 CargoCore Logistics. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
