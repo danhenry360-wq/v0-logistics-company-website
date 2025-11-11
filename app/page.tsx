@@ -38,7 +38,7 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Why Choose CargoCore */}
+      {/* Why Choose CargoCore - Refined */}
       <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">Why Choose CargoCore?</h2>
@@ -66,60 +66,55 @@ const Page = () => {
               </p>
             </div>
           </div>
-
-          <h2 className="text-4xl font-bold mb-4 text-center mt-20">The CargoCore Promise: Built on Trust and Technology</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-12">
-            At CargoCore Logistics, we don't just move freight; we build partnerships. Our operations are grounded in a set of core values that ensure every client receives the highest standard of service, from first mile to last mile.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <img
-                src="/global-supply-chain-network-world-map-distribution.jpg"
-                alt="Global supply chain network"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2">Global Reach</h3>
-              <p className="text-muted-foreground">
-                150+ countries covered with reliable international logistics network
-              </p>
-            </div>
-            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <img
-                src="/express-delivery-fast-shipping-drone-package-racin.jpg"
-                alt="Express delivery service"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2">Fast Delivery</h3>
-              <p className="text-muted-foreground">Express shipping options with real-time tracking and updates</p>
-            </div>
-            <div className="bg-background p-6 rounded-lg border border-border overflow-hidden">
-              <img
-                src="/professional-logistics-workers-team-warehouse-mana.jpg"
-                alt="Professional logistics team"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2">Professional Team</h3>
-              <p className="text-muted-foreground">Experienced logistics experts ready to handle any shipment</p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Global Network & Reach */}
-      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-card">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Connecting Continents: Our Global Footprint</h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-8">
-            With a presence in over 150 countries and strategic hubs in major global trade centers, CargoCore Logistics offers seamless international shipping capabilities. Whether you need to move a single pallet or manage a complex, multi-modal supply chain, our integrated network ensures your cargo reaches its destination safely and efficiently, anywhere in the world. We handle all aspects of cross-border logistics, including customs clearance and regulatory compliance, so you can focus on your core business.
-          </p>
+      {/* Image Feature Section */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-4xl font-bold">Integrated Supply Chain Solutions</h2>
+            <p className="text-lg text-muted-foreground">
+              From the first mile to the last, CargoCore offers a fully integrated suite of services. Our end-to-end management reduces complexity and ensures seamless coordination across all modes of transport.
+            </p>
+            <ul className="space-y-3 text-lg">
+              <li className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Global Network in 150+ Countries</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Real-Time Tracking and Visibility</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Dedicated 24/7 Customer Support</span>
+              </li>
+            </ul>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center px-8 py-3 border border-accent text-accent rounded-lg hover:bg-accent/10 transition font-semibold"
+            >
+              Learn More About Us
+            </Link>
+          </div>
           <img
-            src="/global-map-network.jpg"
-            alt="Global logistics network map"
-            className="w-full max-w-5xl mx-auto rounded-lg shadow-xl"
+            src="/integrated-supply-chain-logistics-network.jpg"
+            alt="Integrated supply chain logistics network"
+            className="rounded-lg shadow-xl w-full h-96 object-cover"
           />
         </div>
       </section>
+
+      {/* The CargoCore Promise: Built on Trust and Technology - Removed to simplify layout and avoid redundancy */}
+
+
 
       {/* Services Preview with Images */}
       <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background">

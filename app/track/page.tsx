@@ -1,61 +1,68 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Package, MapPin, Truck, AlertCircle } from "lucide-react"
+import { Search, Truck, MapPin, Package, CheckCircle, AlertCircle } from "lucide-react"
 
 export default function TrackPage() {
-  const [formData, setFormData] = useState({
-    trackingNumber: "",
-    senderName: "",
-    senderEmail: "",
-    receiverName: "",
-    receiverEmail: "",
-    senderLocation: "",
-    packageLocation: "",
-    expectedDelivery: "",
-    // Add more fields as needed
-    shipmentStatus: "Pending",
-    shipmentWeight: "",
-    shipmentDimensions: "",
-    shipmentValue: "",
-  })
+  const [trackingNumber, setTrackingNumber] = useState("")
+  const [trackingResult, setTrackingResult] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  const [submitted, setSubmitted] = useState(false)
+  const handleTrack = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!trackingNumber) {
+      setError("Please enter a tracking number.")
+      setTrackingResult(null)
+      return
+    }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    setLoading(true)
+    setError(null)
+    setTrackingResult(null)
+
+    // Simulate API call for tracking
+    setTimeout(() => {
+      setLoading(false)
+      if (trackingNumber.startsWith("CC-")) {
+        setTrackingResult({
+          number: trackingNumber,
+          status: "In Transit",
+          currentLocation: "Shanghai International Hub",
+          expectedDelivery: "2025-11-20",
+          history: [
+            { date: "2025-11-10", time: "14:30", location: "New York, NY", status: "Shipment created" },
+            { date: "2025-11-11", time: "09:00", location: "JFK Airport, NY", status: "Departed from origin" },
+            { date: "2025-11-12", time: "03:45", location: "Shanghai International Hub", status: "Arrived at destination country" },
+            { date: "2025-11-12", time: "11:00", location: "Shanghai International Hub", status: "In Transit" },
+          ],
+        })
+      } else {
+        setError("Tracking number not found. Please check the number and try again.")
+      }
+    }, 1500)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real application, this would send data to a backend API
-    console.log("Shipment Form Data:", formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        trackingNumber: "",
-        senderName: "",
-        senderEmail: "",
-        receiverName: "",
-        receiverEmail: "",
-        senderLocation: "",
-        packageLocation: "",
-        expectedDelivery: "",
-        shipmentStatus: "Pending",
-        shipmentWeight: "",
-        shipmentDimensions: "",
-        shipmentValue: "",
-      })
-    }, 5000)
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case "Shipment created":
+        return <Package className="text-primary" size={20} />
+      case "Departed from origin":
+        return <Truck className="text-primary" size={20} />
+      case "Arrived at destination country":
+        return <MapPin className="text-primary" size={20} />
+      case "In Transit":
+        return <Truck className="text-primary" size={20} />
+      case "Delivered":
+        return <CheckCircle className="text-green-500" size={20} />
+      default:
+        return <AlertCircle className="text-muted-foreground" size={20} />
+    }
   }
 
   return (
@@ -65,213 +72,102 @@ export default function TrackPage() {
       {/* Header */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Create New Shipment</h1>
+          <h1 className="text-5xl font-bold mb-6">Track Your Shipment</h1>
           <p className="text-xl opacity-90">
-            Fill out the form below to create a new shipment and generate a tracking number.
+            Enter your tracking number below to get real-time updates on your cargo's location and status.
           </p>
         </div>
       </section>
 
-      {/* Shipment Form */}
+      {/* Tracking Form */}
       <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {submitted ? (
-            <div className="bg-accent/10 border border-accent/30 rounded-lg p-12 text-center">
-              <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold mb-2 text-foreground">Shipment Created Successfully!</h2>
-              <p className="text-muted-foreground mb-4">
-                Your shipment has been created. A tracking number will be generated and sent to the sender's email.
-              </p>
-              <Button asChild>
-                <Link href="/track">Track Shipment</Link>
-              </Button>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <form onSubmit={handleTrack} className="flex gap-4 mb-12">
+            <Input
+              type="text"
+              value={trackingNumber}
+              onChange={(e) => setTrackingNumber(e.target.value)}
+              placeholder="Enter your tracking number (e.g., CC-2025-XXXXX)"
+              className="flex-1 h-12 text-lg"
+            />
+            <Button type="submit" size="lg" disabled={loading} className="bg-accent hover:bg-accent/90">
+              {loading ? "Tracking..." : <Search className="mr-2 h-5 w-5" />}
+              {loading ? "Tracking..." : "Track"}
+            </Button>
+          </form>
+
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/30 text-red-700 p-4 rounded-lg flex items-center gap-3 mb-8">
+              <AlertCircle className="h-5 w-5" />
+              <p className="font-medium">{error}</p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-8 shadow-lg space-y-8">
-              <h2 className="text-2xl font-bold mb-8">Shipment Details</h2>
+          )}
 
-              {/* Sender Information */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-muted-foreground">Sender Information</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Sender's Name</label>
-                    <Input
-                      type="text"
-                      name="senderName"
-                      value={formData.senderName}
-                      onChange={handleChange}
-                      placeholder="Sender's Full Name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Sender's Email (for notifications)</label>
-                    <Input
-                      type="email"
-                      name="senderEmail"
-                      value={formData.senderEmail}
-                      onChange={handleChange}
-                      placeholder="sender@example.com"
-                      required
-                    />
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-semibold mb-2">Sender's Location (Full Address)</label>
-                    <Input
-                      type="text"
-                      name="senderLocation"
-                      value={formData.senderLocation}
-                      onChange={handleChange}
-                      placeholder="Street Address, City, State/Province, Country"
-                      required
-                    />
-                  </div>
+          {trackingResult && (
+            <div className="bg-card border border-border rounded-lg p-8 shadow-lg">
+              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                Tracking Details
+                <span className="text-sm font-normal text-muted-foreground">#{trackingResult.number}</span>
+              </h2>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-8 text-center">
+                <div className="p-4 bg-muted/40 rounded-lg">
+                  <p className="text-sm text-muted-foreground">Status</p>
+                  <p className="text-xl font-semibold text-primary">{trackingResult.status}</p>
+                </div>
+                <div className="p-4 bg-muted/40 rounded-lg">
+                  <p className="text-sm text-muted-foreground">Current Location</p>
+                  <p className="text-xl font-semibold">{trackingResult.currentLocation}</p>
+                </div>
+                <div className="p-4 bg-muted/40 rounded-lg">
+                  <p className="text-sm text-muted-foreground">Expected Delivery</p>
+                  <p className="text-xl font-semibold">{trackingResult.expectedDelivery}</p>
                 </div>
               </div>
 
-              {/* Receiver Information */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-muted-foreground">Receiver Information</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Receiver's Name</label>
-                    <Input
-                      type="text"
-                      name="receiverName"
-                      value={formData.receiverName}
-                      onChange={handleChange}
-                      placeholder="Receiver's Full Name"
-                      required
-                    />
+              <h3 className="text-2xl font-bold mb-4">Shipment History</h3>
+              <div className="space-y-4">
+                {trackingResult.history.map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-muted/40">
+                        {getStatusIcon(item.status)}
+                      </div>
+                      {index < trackingResult.history.length - 1 && (
+                        <div className="w-px h-10 bg-border" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-semibold">{item.status}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.date} at {item.time} - {item.location}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Receiver's Email</label>
-                    <Input
-                      type="email"
-                      name="receiverEmail"
-                      value={formData.receiverEmail}
-                      onChange={handleChange}
-                      placeholder="receiver@example.com"
-                      required
-                    />
-                  </div>
-                </div>
+                ))}
               </div>
+            </div>
+          )}
 
-              {/* Package Details */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-muted-foreground">Package Details</h3>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Current Package Location</label>
-                    <Input
-                      type="text"
-                      name="packageLocation"
-                      value={formData.packageLocation}
-                      onChange={handleChange}
-                      placeholder="e.g., Warehouse A, Shanghai"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Expected Delivery Date</label>
-                    <Input
-                      type="date"
-                      name="expectedDelivery"
-                      value={formData.expectedDelivery}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Tracking Number (if pre-assigned)</label>
-                    <Input
-                      type="text"
-                      name="trackingNumber"
-                      value={formData.trackingNumber}
-                      onChange={handleChange}
-                      placeholder="Optional: CC-2025-XXXXX"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Weight (kg)</label>
-                    <Input
-                      type="number"
-                      name="shipmentWeight"
-                      value={formData.shipmentWeight}
-                      onChange={handleChange}
-                      placeholder="e.g., 500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Dimensions (L×W×H cm)</label>
-                    <Input
-                      type="text"
-                      name="shipmentDimensions"
-                      value={formData.shipmentDimensions}
-                      onChange={handleChange}
-                      placeholder="e.g., 100×80×60"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-2">Declared Value ($)</label>
-                    <Input
-                      type="number"
-                      name="shipmentValue"
-                      value={formData.shipmentValue}
-                      onChange={handleChange}
-                      placeholder="e.g., 1500"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Submit */}
-              <div className="flex justify-center">
-                <Button type="submit" size="lg" className="w-full max-w-xs bg-primary hover:bg-primary/90">
-                  Create Shipment & Get Tracking Number
-                </Button>
-              </div>
-            </form>
+          {!trackingResult && !loading && !error && (
+            <div className="text-center text-muted-foreground py-12">
+              <Truck className="mx-auto h-12 w-12 mb-4" />
+              <p className="text-lg">Enter a tracking number to see your shipment details.</p>
+            </div>
           )}
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* CTA for Shipment Creation */}
       <section className="py-16 bg-muted/40">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">Shipment Creation Process</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold text-lg">
-                1
-              </div>
-              <h3 className="font-semibold mb-2">Fill Details</h3>
-              <p className="text-muted-foreground text-sm">Provide sender, receiver, and package information.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold text-lg">
-                2
-              </div>
-              <h3 className="font-semibold mb-2">Generate Tracking</h3>
-              <p className="text-muted-foreground text-sm">A unique tracking number is instantly generated.</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold text-lg">
-                3
-              </div>
-              <h3 className="font-semibold mb-2">Ship & Track</h3>
-              <p className="text-muted-foreground text-sm">Begin your shipment and monitor its progress.</p>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Need to Create a New Shipment?</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            If you are a partner or internal user, use our dedicated form to create a new shipment and generate a tracking number.
+          </p>
+          <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+            <Link href="/shipment-form">Go to Shipment Creation Form</Link>
+          </Button>
         </div>
       </section>
 
