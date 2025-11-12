@@ -207,7 +207,8 @@ export default function AdminDashboard() {
                       placeholder="e.g., Shanghai"
                     />
                   </div>
-                  <d                  <label className="block text-sm font-semibold mb-2">Origin Country</label>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">Origin Country</label>
                     <input
                       type="text"
                       name="originCountry"
