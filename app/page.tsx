@@ -125,32 +125,32 @@ const Page = () => {
               {
                 name: "Air Freight",
                 desc: "Fast international air cargo",
-                image: "/air-freight-cargo-loading-operations.jpg",
+                image: "/logistics-air-ocean-road.png",
               },
               {
                 name: "Ocean Freight",
                 desc: "Cost-effective sea shipping",
-                image: "/ocean-freight-container-terminal.jpg",
+                image: "/logistics-freight-forwarding.jpg",
               },
               {
                 name: "Road Transport",
                 desc: "Reliable ground logistics",
-                image: "/road-transport-fleet-professional.jpg",
+                image: "/logistics-digital-tracking.jpg",
               },
               {
                 name: "Warehousing",
                 desc: "Secure storage solutions",
-                image: "/warehouse-management-system-professional.jpg",
+                image: "/logistics-warehouse-scm.png",
               },
               {
                 name: "Last-Mile Delivery",
                 desc: "Final destination delivery",
-                image: "/last-mile-delivery-professional.jpg",
+                image: "/logistics-supply-chain-process.jpg",
               },
               {
                 name: "Customs Clearance",
                 desc: "Complete documentation handling",
-                image: "/customs-clearance-professional.jpg",
+                image: "/logistics-scm-flow.jpg",
               },
             ].map((service) => (
               <div
