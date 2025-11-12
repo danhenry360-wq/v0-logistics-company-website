@@ -166,7 +166,7 @@ export default function AdminDashboard() {
                   </div>
                 )}
 
-                <h4 className="text-lg font-bold mt-4
+                <h4 className="text-lg font-bold mt-4 mb-2 border-b border-border pb-1">Sender Information</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold mb-2">Sender Name</label>
